@@ -1,0 +1,39 @@
+<!DOCTYPE html >
+<html lang = "es">
+    <head>
+            <meta name = "viewport" content = "width=device-width, initial-scale= 1.0">
+            <meta charset="UTF-8"> 
+            <meta name="copyright" content="© JARS 2021">
+            <link rel="shortcut icon" href="../Public/img/fav-icon.jpg">
+            <link rel="stylesheet" href="../Public/CSS/contact.css">
+            <title>CONTACTO JARS</title>
+    </head>
+    <body> 
+        <!--INICIO FONDO DEL contact-->
+        <div class="bg_color"></div>
+        <div class="wave w1"></div>
+        <div class="wave w2"></div>
+        <!--FIN DEL LOGIN--> 
+        <!--INICIO DEL FORMULARIO-->
+        <form class="form" action="./forms/send.php" method="POST" id="form">
+          <div class="form__container">
+            <h2 class="form__title">Contáctame</h2>
+            <input type="text" class="form__input" placeholder="Nombre:"  id="form_name" name="name" required>
+            <input type="email" class="form__input" placeholder="Correo electrónico:"  id="form_email" name="email" required>
+            <textarea class="form__input form__input-message" placeholder="Mensaje: " name="text" id="message_form" required></textarea>
+
+            <input type="submit" value="Enviar" class="form_cta" name = "send">
+          </div>
+        </form>
+        <!--FIN DEL FORMULARIO-->
+        
+        <!--Para regresar-->
+        <div class="textjars">
+          <h1>
+            <a href="../Vistas/index.html">JARS</a>
+          </h1>
+        </div>
+        
+        <script src="../Public/JS/contactValidation.js"></script>
+    </body>
+</html>

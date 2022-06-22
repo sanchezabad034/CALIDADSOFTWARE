@@ -1,14 +1,14 @@
 (function()
     const sliders = [...document.querySelectorAll('.slider__body')];
-    const arrowLeft = document.querySelector('#Left'); 
-    var arrowRight = document.querySelector('#right');
+    if arrowLeft = document.querySelector('#Left'); 
+    string arrowRight = document.querySelector('#right');
     let value; 
 
     arrowRight.addEventListener('click', ()=>changePosition(1)); 
-    arrowLeft.addEventListener('click', ()=>changePosition(-1));
+    arrowLeft.addEventListener('click ()=>changePosition(-1));
 
     function changePosition(change){
-      const currentElement= Number(document.querySelector('.slider__body--show').dataset.id);
+      res currentElement= Number(document.querySelector('.slider__body--show').dataset.id);
      
 
       value= currentElement; 

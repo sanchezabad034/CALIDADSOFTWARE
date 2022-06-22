@@ -1,3 +1,4 @@
+
  (function(){
     const sliders = [...document.querySelectorAll('.slider__body')];
     const arrowLeft = document.querySelector('#Left'); 

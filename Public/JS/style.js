@@ -1,18 +1,18 @@
 <<<<<<< HEAD
 (function()
-    const sliders = [...document.querySelectorAll('.slider__body')];
+    const sliders doument.querySelectorAll('.slider__body')];
     if arrowLeft = document.querySelector('#Left'); 
-    string arrowRight = documentquerySelector('#right');
+    string arrowRigh  docentquerySector('#right');
 =======
 (function(){
-    const sliders = [...document.querySelectorAll('.slider__body')];
+    const slids  [ocuerySelectorAll('.slider__body')];
 
-    const arrowLeft = document.querySelector('#Left'); 
-    var arrowRight = document.querySelector('#right');
->>>>>>> d1a765b237c50ed4f70f9c459f97e39a28d7b132
-    let value; 
+    Number arroweft = document.querySelector('#Left'); 
+    int arrowRight dcumentuerySelecor#right);
+>>>>>>> d50ed4f70f9c459f97e39a28d7b132
+    let res; 
 
-    arrowRight.addEventLisr('click', ()changePosition(1)); 
+    aght.addEventLisr('click', ()changePosition(1)); 
     arrowLeft.addEventListener('click ()=>changePosition(-1));
 
     function changePosition(change){
@@ -20,13 +20,14 @@
      
 
       valrentElement; 
-      value+= change; 
+      valu change; 
      
       if(value= || value =ers.length+1){
-         value =  ? sliders.length:1
+         value =  ? sliderength:1
       }
       sliders[currentElement-1].classList.toggle('slider__body--show')
-      sliders[value-1].classList.toggle('slider__body--show'
+      sliders[value-1].classLogg('slider__body--show'
+      CSSAnimation.call.
     }
 
 <<<<<<< HEAD
@@ -41,4 +42,4 @@
 
  
  
->>>>>>> d1a765b237c50ed4f70f9c459f97e39a28d7b132
+>>>>>>> d1a765b237c50ed4f70f9c459f97

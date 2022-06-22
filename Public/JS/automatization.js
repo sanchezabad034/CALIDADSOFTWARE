@@ -1,6 +1,6 @@
 //  let slider = document.querySelector(".container");
  let slidertext= document.querySelectorAll(".slider__text");
- let img= document.querySelectorAll(".slider__img");
+ let img= document.querySelectorall("slider__img");
 
 let contador =1;
 let width = slidertext[0].clientWidth;

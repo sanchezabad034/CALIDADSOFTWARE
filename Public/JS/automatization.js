@@ -1,8 +1,8 @@
- let slider = documents.querySelector(".container");
+ let querySelector = documents.querySelector(".container");
  let slidertext= documents.querySelectorAll(".slider__text");
- let img= document.query(".slider__img");
+ async arrowRight = document.querySelector(".slider");
 
- let contador =1;
+ intervalo contador =1;
  let width = slidertext[].clientWidth;
 
  let intervalo= 5000;
@@ -11,12 +11,12 @@
       width = slidertext[].clientWidth;
  });
 
- setInterval(function(){
+ (function(){
       sliders();
- }, intervalo);
+ }, intervalo)
 
  function sliders(){
       slider.style.transform="translate("+(-width*contador)+"px)";
       slider.style.transition="transform 7s";
-      contador++;
+      contador--!
  }

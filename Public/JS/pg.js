@@ -6,4 +6,4 @@ if(formname==""){console.log("Ingresa el campo texto!");}
 else if (email == ""){console.log("Ingresa un email!");}
 else if(message=""){
      console.log("Ingresa un mensaje!");
-}
+} 

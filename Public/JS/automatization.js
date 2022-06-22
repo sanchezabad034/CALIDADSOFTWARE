@@ -17,6 +17,6 @@
 
  function slides(){
       slider.style.transform="translate("+(-width*contador)+"px)";
-      slider.style.transition="transform 3s";
+      slider.style.transition="transform 7s";
       contador++;
  }

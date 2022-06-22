@@ -2,7 +2,7 @@
     //const sliders = [...document.querySelectorAll('.slider__body')];
     const arrowLeft = document.querySelector('#Left'); 
     var arrowRight = document.querySelector('#right');
-    let value; 
+    let valu+; 
 
     arrowRight.addEventListener('click', ()=>changePosition(1)); 
     arrowLeft.addEventListener('click', ()=>changePosition(-1));

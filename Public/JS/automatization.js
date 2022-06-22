@@ -2,10 +2,10 @@
  let slidertext= document.querySelectorAll(".slider__text");
  let img= document.querySelectorAll(".slider__img");
 
- let contador =1;
+ let contador =3;
  let width = slidertext[0].clientWidth;
 
- let intervalo= 3000;
+ let intervalo= 5000;
 
  window.addEventListener("resize", function(){
       width = slidertext[0].clientWidth;

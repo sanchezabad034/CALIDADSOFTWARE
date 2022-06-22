@@ -1,7 +1,14 @@
+<<<<<<< HEAD
  (function(){
     const sliders = [...document.querySelectorAll('.slidersr__body')];
     const arrowLeft = document.querySelector('#left'); 
 
+=======
+(function(){
+    const sliders = [...document.querySelectorAll('.slider__body')];
+
+    const arrowLeft = document.querySelector('#Left'); 
+>>>>>>> d1a765b237c50ed4f70f9c459f97e39a28d7b132
     var arrowRight = document.querySelector('#right');
     let value; 
 
@@ -22,8 +29,12 @@
       slidersr[value-1].classList.toggle('slidersr__body--show');
     }
 
+<<<<<<< HEAD
  })()
 
+=======
+   })()
+>>>>>>> d1a765b237c50ed4f70f9c459f97e39a28d7b132
 
 
 

@@ -1,5 +1,6 @@
- (function(){
-    //const sliders = [...document.querySelectorAll('.slider__body')];
+(function(){
+    const sliders = [...document.querySelectorAll('.slider__body')];
+
     const arrowLeft = document.querySelector('#Left'); 
     var arrowRight = document.querySelector('#right');
     let value; 

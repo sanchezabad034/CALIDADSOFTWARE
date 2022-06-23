@@ -13,7 +13,7 @@ Class Users
 	//Método para insertar registros
 	public function insertar($nombre,$apellido,$tipo,$clave,$email,$img,$avatar,$tel)
 	{
-		$sql="INSERT INTO users (nombre,apellido,tipo,password,email,img,avatar,tel)
+		$sql="INSERT  users (nombre,apellido,tipo,password,email,img,avatar,tel)
 		VALUES ('$nombre','$apellido','$tipo','$clave','$email','$img','$avatar','$tel')";
 		return ejecutarConsulta($sql);
 	}
@@ -21,7 +21,7 @@ Class Users
 	//Método para editar registros
 	public function editar($id_user,$nombre,$apellido,$tipo,$clave,$email,$img,$avatar,$tel)
 	{
-		$sql="UPDATE users SET nombre='$nombre',apellido = '$apellido',tipo='$tipo', password='$clave', email='$email', img='$img', avatar='$avatar' tel='$tel'  WHERE id_user='$id_user'";
+		$sql=" users SET nombre='$nombre',apellido = '$apellido',tipo='$tipo', password='$clave', email='$email', img='$img', avatar='$avatar' tel='$tel'  WHERE id_user='$id_user'";
 		return ejecutarConsulta($sql);
 	}
 
@@ -42,14 +42,14 @@ Class Users
 	//Implementar un método para mostrar los datos de un registro a modificar
 	public function mostrar($id_user)
 	{
-		$sql="SELECT * FROM users WHERE id_user='$id_user'";
+		$sql="SELECT *  id_user='$id_user'";
 		return ejecutarConsulta($sql);
 	}
 
 	//Implementar un método para listar los registros
 	public function listar()
 	{
-		$sql="SELECT * FROM users";
+		$sql=" * FROM users";
 		return ejecutarConsulta($sql);		
 	}
 

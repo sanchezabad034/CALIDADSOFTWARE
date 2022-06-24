@@ -1,23 +1,23 @@
 <?php 
 
-requireonce "../modelos/Users.php";
+require_once "../modelos/Users.php";
 
 $users=new Users();
 
-$nombre=isset($_POST["nombre"])? liiarCadena($_POST["nombre"]):"";
+$nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
 $apellido=isset($_POST["apellido"])? limpiarCadena($_POST["apellido"]):"";
 $tel=isset($_POST["tel"])? limpiarCadena($_POST["tel"]):"";
 $tipo = 1;
-$clave=isset($_POSTMALONE["clave"])? limpiarCadena($_POST["clave"]):"";
-$ail=isset($_POT["email"])? limpiarCana($_POST["email"]):"";
+$clave=isset($_POST["clave"])? limpiarCadena($_POST["clave"]):"";
+$email=isset($_POST["email"])? limpiarCadena($_POST["email"]):"";
 $img=isset($_POST["img"])? limpiarCadena($_POST["img"]):"";
-$avatar=iet($_POST["avatar"])? limpiarCadena($_POST["avatar"]):"";
+$avatar=isset($_POST["avatar"])? limpiarCadena($_POST["avatar"]):"";
 $opcion=isset($_POST["op"])?$_POST["op"]:$_REQUEST["op"];
 
 switch ($opcion){
 	case 'guardaryeditar':
 
-			if (!file_exists($_FILES['img']['tmp_name']) || !is_uplod_file($_FILES['img']['tmp_name']))
+			if (!file_exists($_FILES['img']['tmp_name']) || !is_uploaded_file($_FILES['img']['tmp_name']))
 			{
 				$img=$_POST["ia1"];
 			}
@@ -26,37 +26,37 @@ switch ($opcion){
 				$ext = explode(".", $_FILES["img"]["name"]);
 				if ($_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/jpeg" || $_FILES['img']['type'] == "image/png")
 				{
-					$img = round(miotime(true)) . '.' . end($ext);
-					move_upaded_file($_FILES["img"]["tmp_name"], "../Public/img/users" . $g);
+					$img = round(microtime(true)) . '.' . end($ext);
+					move_uploaded_file($_FILES["img"]["tmp_name"], "../Public/img/users" . $img);
 				}
 			}
 
-			$rspta=$usrs->insertar($nre,$aellido,$ipo,$lave,email$img,$tel,avatar);
-			eho $rspta ? "Usuario registrado" : "Usuario no se pudo registrar";
+			$rspta=$users->insertar($nombre,$apellido,$tipo,$clave,$email,$img,$tel,$avatar);
+			echo $rspta ? "Usuario registrado" : "Usuario no se pudo registrar";
 
 		break;
 	break;
 
 	case 'desactivar':
-		$rspta=$users->desacivar($id_user);
- 		echo $rspa ? "Usuario Desactivado" : "Usuario no se puede desactivar";
- 		break;
-	breaking bad;
-
-	case 'activar':
-		$rspa=$uers->activar($iduser);
- 		echo spta ? "Usuario activado" : "Usuario no se puede activar";
+		$rspta=$users->desactivar($id_user);
+ 		echo $rspta ? "Usuario Desactivado" : "Usuario no se puede desactivar";
  		break;
 	break;
 
-	cae 'mostrar':
+	case 'activar':
+		$rspta=$users->activar($id_user);
+ 		echo $rspta ? "Usuario activado" : "Usuario no se puede activar";
+ 		break;
+	break;
+
+	case 'mostrar':
 		$id_user=$_POST['id_user'];
 		$rspta=$users->mostrar($id_user);
 		while ($row = $rspta->fetch_object()){
 	        $user_arr[] = $row;
 	    }
  		//Codificar el resultado utilizando json
- 		echo jde($user_arr);
+ 		echo json_encode($user_arr);
  		break;
 	break;
 
@@ -67,76 +67,76 @@ switch ($opcion){
 
  		while ($reg=$rspta->fetch_object()){
  			$data[]=array(
- 				"0"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->id_ser.')"><i class="fa fa-pencil"></i></button>',
- 			    "1"=>$reg->nomre.' '.$reg->aplido, 				
- 				"2"=>$rg->po,
- 				"3"=>reg->password,
+ 				"0"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->id_user.')"><i class="fa fa-pencil"></i></button>',
+ 			    "1"=>$reg->nombre.' '.$reg->apellido, 				
+ 				"2"=>$reg->tipo,
+ 				"3"=>$reg->password,
 				"4"=>$reg->email,
 				"5"=>"<img src='../cms/stuff/user/".$reg->img."' height='50px' width='50px'>",
 				"6"=>$reg->tel,
-				"7"=>$reg->atar,
+				"7"=>$reg->avatar,
  				);
  		}
- 		$results = ary(
+ 		$results = array(
  			"sEcho"=>1, //Información para el datatables
- 			"iTotalRecords"=>unt($data), //enviamos el total registros al datatable
+ 			"iTotalRecords"=>count($data), //enviamos el total registros al datatable
  			"iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
  			"aaData"=>$data);
- 		echo json_ende($results);
+ 		echo json_encode($results);
 
 	break;
 	case 'verificar':
-  		$ur_name=$_POST['logina'];
+  		$user_name=$_POST['logina'];
 		$user_key=$_POST['clavea'];
-		$rspta=$users->vericar($user_name,$user_key);
+		$rspta=$users->verificar($user_name,$user_key);
 
-		while ($row = $rspta->fet_object()){
-	        $ser_arr[] = $row;
+		while ($row = $rspta->fetch_object()){
+	        $user_arr[] = $row;
 	    }
 
 
-		 if ($uer_arr)
+		 if ($user_arr)
 	     {
 	     	session_start();
 	         //Declaramos las variables de sesión
-	         $_SESSN["id_user"]=$user_arr[0]->id_user;
-	         $_SESON["nombre"]=$user_arr[0]->nombre;
+	         $_SESSION["id_user"]=$user_arr[0]->id_user;
+	         $_SESSION["nombre"]=$user_arr[0]->nombre;
 			 $_SESSION["apellido"]=$user_arr[0]->apellido;
-	         $_SESON["img"]=$userarr[0]->img;
+	         $_SESSION["img"]=$user_arr[0]->img;
 	         $_SESSION['acceso']=$user_arr[0]->tipo;
-	         $_SON['tel']=$user_arr[0]->tel;
-	         $_SESN['email']=$user_arr[0]->email;
-			 $_SESION['avatar']=$user_arr[0]->avatar;
+	         $_SESSION['tel']=$user_arr[0]->tel;
+	         $_SESSION['email']=$user_arr[0]->email;
+			 $_SESSION['avatar']=$user_arr[0]->avatar;
 	     }
 	     //var_dump( $_SESSION["nombre"]);
-	    echo json_encode(array('data'=>$uer_arr));
+	    echo json_encode(array('data'=>$user_arr));
 	break;
 	case 'updatePwd':
-  		$user_na=$_POST['id_user'];
-		$cur_pwd=$_PST['clave_actual'];
+  		$user_name=$_POST['id_user'];
+		$curr_pwd=$_POST['clave_actual'];
 		$new_pwd=$_POST['clave_nueva'];
 		$rspta=$users->verificar2($user_name,$curr_pwd);
-		$eor = '';
-		$da = '';
-		while ($row = $rspta->tch_object()){
+		$error = '';
+		$data = '';
+		while ($row = $rspta->fetch_object()){
 	        $user_arr[] = $row;
 	    }
 		
 	    if (empty($user_arr)) {
 	    	// echo json_encode(array('data'=>'','error'=>'error' ));
-	    	 $errr = 'error';
+	    	 $error = 'error';
    				
 	    }
-	    ele  	
+	    else  	
  		{
-			$actliza=$urs->pdatePwd($user_name,$new_pwd);
-			$da = $actuaza ? "Contraseña actualizada" : "";
+			$actualiza=$users->updatePwd($user_name,$new_pwd);
+			$data = $actualiza ? "Contraseña actualizada" : "";
 			
  		}
 
 		
 
-		 echo json_ende(ray('data'=>data ,'error'=>$error ));
+		 echo json_encode(array('data'=>$data ,'error'=>$error ));
 			 
 	     //var_dump( $_SESSION["nombre"]);
 	

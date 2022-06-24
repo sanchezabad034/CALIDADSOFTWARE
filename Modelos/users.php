@@ -11,7 +11,7 @@ Class Users
 	}
 
 	//Método para insertar registros
-	public function insertar($nombre,$apellido,$tipo,$clave,$email,$img,$avatar,$tel)
+	public function insertar(,$img,$avatar,$tel)
 	{
 		$sql="INSERT INTO users (nombre,apellido,tipo,password,email,img,avatar,tel)
 		VALUES ('$nombre','$apellido','$tipo','$clave','$email','$img','$avatar','$tel')";
@@ -26,32 +26,28 @@ Class Users
 	}
 
 	//Implementamos un método para desactivar usuario admin
-	public function desactivar($id_user)
-	{
+	
 		$sql="UPDATE users SET tipo='1' WHERE id_user='$id_user'";
 		return ejecutarConsulta($sql);
-	}
+	
 
 	//Implementamos un método para activar usuario admin
-	public function activar($id_user)
-	{
+	
 		$sql="UPDATE users SET tipo='0' WHERE id_user='$id_user'";
 		return ejecutarConsulta($sql);
-	}
+	
 
 	//Implementar un método para mostrar los datos de un registro a modificar
-	public function mostrar($id_user)
-	{
+	
 		$sql="SELECT * FROM  id_user='$id_user'";
 		return ejecutarConsulta($sql);
-	}
+	
 
 	//Implementar un método para listar los registros
-	public function listar()
-	{
+	
 		$sql=" * FROM users";
 		return ejecutarConsulta($sql);		
-	}
+	
 
 	//Implementar un método para validar o actualizar la contraseña 
 	public function verificar($user_name,$user_key)

@@ -1,9 +1,14 @@
  let formname=document.querySelector("#form_name");
  let email = document.querySelector("#form_email");
- let message= document.querySelector("#message_form");
+ let axios= document.querySelector("#message_form");
 
-if(formname==""){console.log("Ingresa el campo texto!");}
-else if (email == ""){console.log("Ingresa un email!");}
-else if(message=""){
-     console.log("Ingresa un mensaje!");
-}
+ async listUsers() {
+     try {
+       const res = await.get(
+       );
+       this.users = res.data;
+     } catch (err) {
+       console.error(err);
+     }
+   },
+ },

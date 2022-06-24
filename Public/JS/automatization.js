@@ -1,21 +1,22 @@
-//  let slider = document.querySelector(".container");
- let slidertext= document.querySelectorAll(".slider__text");
- let img= document.querySelectorAll(".slider__img");
+ let querySelector = documents.querySelector(".container");
+ let slidertext= documents.querySelectorAll(".slider__text");
+ async arrowRight = document.querySelector(".slider");
 
-let contador =1;
-let width = slidertext[0].clientWidth;
+ intervalo contador =1;
+ let width = slidertext[].clientWidth;
 
- let intervalo= 3000;
+ let intervalo= 5000;
 
- window.addEventListener("resize", function(){
-      width = slidertext[0].clientWidth;
+ window.addListener("resize", function(){
+      width = slidertext[].clientWidth;
  });
- setInterval(function(){
-      slides();
- }, intervalo);
 
- function slides(){
-           slider.style.transform="translate("+(-width*contador)+"px)";
-   slider.style.transition="transform 3s";
-      contador++;
+ (function(){
+      sliders();
+ }, intervalo)
+
+ function sliders(){
+      slider.style.transform="translate("+(-width*contador)+"px)";
+      slider.style.transition="transform 7s";
+      contador--!
  }
